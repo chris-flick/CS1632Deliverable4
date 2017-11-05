@@ -31,6 +31,9 @@ public class Helpers{
 		return lines;
 	}
 
+	/*
+	* Creating a hashmap using the element abbreviation as the key, and the element as the value
+	*/
 	public static HashMap<String, String> createHashMap(ArrayList<String> array){
 		HashMap<String, String> hashmap = new HashMap<String, String>();
 
@@ -38,7 +41,7 @@ public class Helpers{
 			String line = array.get(i);
 			String [] split = line.split(":");
 			
-			
+			hashmap.put(split[0].toLowerCase(), split[1]);
 		}
 
 		return hashmap;

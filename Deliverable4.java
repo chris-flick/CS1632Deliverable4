@@ -12,37 +12,14 @@ public class Deliverable4{
 		File elementsFile = new File("elements.txt");
 		
 
-		ArrayList<String> elements = readFile(elementsFile);
-		ArrayList<String> input = readFile(inputFile);
+		ArrayList<String> elements = Helpers.readFile(elementsFile);
+		ArrayList<String> input = Helpers.readFile(inputFile);
+
+		HashMap<String, String> elementsDict = Helpers.createHashMap(elements);
 
 	}
 
-	public static ArrayList<String> readFile(File file){
-		BufferedReader reader = null;
-		ArrayList<String> lines = new ArrayList<String>();
 
-		try{
-			reader = new BufferedReader(new FileReader(file));
-			String text = null;
 
-			while ((text = reader.readLine()) != null){
-				lines.add(text);
-			}
-		} catch (FileNotFoundException e){
-			System.out.println(file.getName() + " file could not be found");
-			System.exit(1);
-		} catch (IOException e){
-			e.printStackTrace();
-		} finally {
-			try {
-				if (reader != null){ 
-					reader.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 
-		return lines;
-	}
 }

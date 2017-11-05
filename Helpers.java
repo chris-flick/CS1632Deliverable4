@@ -53,17 +53,19 @@ public class Helpers{
 	}
 
 	public static ArrayList<String> checkElements(String line, HashMap<String, String> elementsDict){
-		if (line.length() == 0 || line == "")
+
+		if (line.length() == 0 || line.equals(""))
 			return null;
 
-		StringBuilder sb = new StringBuilder(line);
+		StringBuilder sb = new StringBuilder(line.toLowerCase());
 		int begin = 0;
-		int end = 1;
+		int end = 2;
 		ArrayList<String> elements = new ArrayList<String>();
 
 		while (end < sb.length()){
 			String twoLetters = sb.substring(begin, end);
-			String oneLetter = sb.substring(begin, begin);
+			String oneLetter = sb.substring(begin, end - 1);
+			
 
 			// check for abbreviations with two characterss
 			if (elementsDict.get(twoLetters) != null){
@@ -85,5 +87,16 @@ public class Helpers{
 		}
 
 		return elements;
+	}
+
+	public static String removeNonCharacters(String line){
+		String validString = "";
+
+		for (int i = 0; i < line.length(); i++){
+			if ((line.charAt(i) < 123 && line.charAt(i) > 96) || (line.charAt(i) < 91 && line.charAt(i) > 64))
+				validString += line.charAt(i);
+		}
+
+		return validString;
 	}
 }

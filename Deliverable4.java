@@ -17,6 +17,9 @@ public class Deliverable4{
 
 		HashMap<String, String> elementsDict = Helpers.createHashMap(elements);
 
+		for (int i = 0; i < input.size(); i++){
+			Helpers.checkElements(input.get(i), elementsDict);
+		}
 
 	}
 

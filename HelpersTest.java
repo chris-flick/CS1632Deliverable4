@@ -30,4 +30,25 @@ public class HelpersTest {
 
 		assertEquals("TsarMeow", result);
 	}
+
+	@Test
+	public void testCheckElements1(){
+		ArrayList<String> result = Helpers.checkElements("Tsar Ra", elementsDict);
+
+		assertEquals("ts", result.get(0));
+	}
+
+	@Test
+	public void testCheckElements2(){
+		ArrayList<String> result = Helpers.checkElements("Tsar Ra", elementsDict);
+
+		assertEquals("ar", result.get(1));
+	}
+
+	@Test
+	public void testCheckElements3(){
+		ArrayList<String> result = Helpers.checkElements("Tsar Ra", elementsDict);
+
+		assertEquals("ra", result.get(2));
+	}
 }

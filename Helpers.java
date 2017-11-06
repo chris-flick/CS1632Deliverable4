@@ -57,15 +57,15 @@ public class Helpers{
 		if (line.length() == 0 || line.equals(""))
 			return null;
 
-		StringBuilder sb = new StringBuilder(line.toLowerCase());
+		StringBuilder sb = new StringBuilder(removeNonCharacters(line.toLowerCase()));
 		int begin = 0;
 		int end = 2;
 		ArrayList<String> elements = new ArrayList<String>();
 
-		while (end < sb.length()){
+		while (end <= sb.length()){
 			String twoLetters = sb.substring(begin, end);
 			String oneLetter = sb.substring(begin, end - 1);
-			
+
 
 			// check for abbreviations with two characterss
 			if (elementsDict.get(twoLetters) != null){

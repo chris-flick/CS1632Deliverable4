@@ -15,6 +15,10 @@ public class Deliverable4{
 		ArrayList<String> elements = Helpers.readFile(elementsFile);
 		ArrayList<String> input = Helpers.readFile(inputFile);
 
+		// if either are null, then there was a FileNotFoundException or IOException, so exit
+		if (elements == null || input == null)
+			System.exit(1);
+
 		HashMap<String, String> elementsDict = Helpers.createHashMap(elements);
 
 		for (int i = 0; i < input.size(); i++){

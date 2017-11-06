@@ -25,7 +25,7 @@ public class Helpers{
 			return null;
 		} finally {
 			try {
-				if (reader != null){ 
+				if (reader != null){
 					reader.close();
 				}
 			} catch (IOException e) {
@@ -47,7 +47,7 @@ public class Helpers{
 			// elements.txt has been reformatted so that it can be easily split off of ":" character
 			String line = array.get(i);
 			String [] split = line.split(":");
-			
+
 			// make abbreviation lowercase in order to simplify the process of matching by getting rid of lettercase
 			hashmap.put(split[0].toLowerCase(), split[1]);
 		}
@@ -66,7 +66,6 @@ public class Helpers{
 		int begin = 0;
 		int end = 2;
 		ArrayList<String> elements = new ArrayList<String>();
-
 
 		while (end <= sb.length()){
 			// get two letter substring in order to try to match to a Two letter element
@@ -89,11 +88,12 @@ public class Helpers{
 			}
 			// if neither one letter or two letter element is found, return null
 			else{
-				return null;
+				begin++;
+				end++;
 			}
-			
-		}
 
+		}
+		if(elements.isEmpty()) return null;
 		return elements;
 	}
 

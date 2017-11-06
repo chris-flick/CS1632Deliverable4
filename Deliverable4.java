@@ -10,7 +10,7 @@ public class Deliverable4{
 
 		File inputFile = new File(args[0]);
 		File elementsFile = new File("elements.txt");
-		
+
 
 		ArrayList<String> elements = Helpers.readFile(elementsFile);
 		ArrayList<String> input = Helpers.readFile(inputFile);
@@ -22,8 +22,15 @@ public class Deliverable4{
 		HashMap<String, String> elementsDict = Helpers.createHashMap(elements);
 
 		for (int i = 0; i < input.size(); i++){
-			Helpers.checkElements(input.get(i), elementsDict);
+			ArrayList<String> result = Helpers.checkElements(input.get(i), elementsDict);
+			if(result != null){
+			for(String e : result){
+				System.out.println(e);
+			}
 		}
+	}
+
+
 
 	}
 

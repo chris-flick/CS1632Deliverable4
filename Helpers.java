@@ -62,7 +62,7 @@ public class Helpers{
 			return null;
 
 		// make string lowercase and call removeNonCharacters() method to remove anything that isn't in the alphabet
-		StringBuilder sb = new StringBuilder(removeNonCharacters(line.toLowerCase()));
+		StringBuilder sb = new StringBuilder(removeNonCharacters(line.toLowerCase()) + " ");
 		int begin = 0;
 		int end = 2;
 		ArrayList<String> elements = new ArrayList<String>();
@@ -78,22 +78,20 @@ public class Helpers{
 			if (elementsDict.get(twoLetters) != null){
 				elements.add(twoLetters);
 				begin += 2;
-				end += 2;
+				end +=2;
 			}
 			// check for abbreviations with one character
 			else if (elementsDict.get(oneLetter) != null){
 				elements.add(oneLetter);
 				begin += 1;
-				end += 1;
+				end +=1;
 			}
 			// if neither one letter or two letter element is found, return null
 			else{
-				begin++;
-				end++;
+				return null;
 			}
 
 		}
-		if(elements.isEmpty()) return null;
 		return elements;
 	}
 

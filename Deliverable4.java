@@ -22,13 +22,25 @@ public class Deliverable4{
 		HashMap<String, String> elementsDict = Helpers.createHashMap(elements);
 
 		for (int i = 0; i < input.size(); i++){
-			ArrayList<String> result = Helpers.checkElements(input.get(i), elementsDict);
+			String line = input.get(i);
+			ArrayList<String> result = Helpers.checkElements(line, elementsDict);
 			if(result != null){
-			for(String e : result){
-				System.out.println(e);
+			for(int j = 0; j<result.size(); j++){
+				if(j == result.size()-1) System.out.println(result.get(j));
+				else System.out.print(result.get(j) + " - ");
 			}
+
+			for(int j = 0; j<result.size(); j++){
+				if(j == result.size()-1) System.out.println(elementsDict.get(result.get(j)));
+				else System.out.print(elementsDict.get(result.get(j)) + " - ");
+			}
+		}else{
+			System.out.println("Could not create name \"" + line + "\" out of elements.");
 		}
+		System.out.println();
 	}
+
+
 
 
 

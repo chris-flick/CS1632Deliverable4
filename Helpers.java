@@ -157,31 +157,31 @@ public class Helpers{
 		if(elements != null){
 			for(int j = 0; j < elements.size(); j++){
 				if(j == elements.size() - 1)
-					results.append(capitalizeFirstLetter(elements.get(j)));
+					result.append(capitalizeFirstLetter(elements.get(j)));
 				else
-					results.append(capitalizeFirstLetter(elements.get(j)) + " - ");
+					result.append(capitalizeFirstLetter(elements.get(j)) + " - ");
 			}
 		}
 		else{
 			return null;
 		}
-		return result;
+		return result.toString();
 	}
 
 	/*
 	* takes arraylist of elements and dictionary and produces an I/O friendly string consisting of the element names for printing
 	*/
 	public static String generateElementName(ArrayList<String> elements, HashMap<String, String> elementsDict){
-		String result = "";
+		StringBuilder result = new StringBuilder("");
 
 		if(elements != null){
 
 			for(int j = 0; j < elements.size(); j++){
 				if(j == elements.size() - 1)
-					result += elementsDict.get(elements.get(j));
+					result.append(elementsDict.get(elements.get(j)));
 					//System.out.println(elementsDict.get(elements.get(j)));
 				else
-					result += elementsDict.get(elements.get(j)) + " - ";
+					result.append(elementsDict.get(elements.get(j)) + " - ");
 					//System.out.print(elementsDict.get(elements.get(j)) + " - ");
 			}
 		}
@@ -189,7 +189,7 @@ public class Helpers{
 			return null;
 			//System.out.println("Could not create name \"" + line + "\" out of elements.");
 		}
-		return result;
+		return result.toString();
 	}
 
 	/*

@@ -4,7 +4,7 @@ import java.util.*;
 public class Deliverable4{
 	public static void main(String args []){
 		if (args.length != 1){
-			System.out.println("Incorrect arguments. Run command 'java Deliverable4 <filename>'");
+			System.out.println("Error: Enter only one argument, the file to read.");
 			System.exit(1);
 		}
 
@@ -23,6 +23,10 @@ public class Deliverable4{
 
 		for (int i = 0; i < input.size(); i++){
 			String line = input.get(i);
+
+			if (line.equals(""))
+				continue;
+
 			ArrayList<String> result = Helpers.checkElements(line, elementsDict);
 			
 			String elementAbbr = Helpers.generateElementAbbr(result);

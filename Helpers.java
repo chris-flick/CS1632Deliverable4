@@ -18,7 +18,7 @@ public class Helpers{
 				lines.add(text);
 			}
 		} catch (FileNotFoundException e){
-			System.out.println(file.getName() + " file could not be found");
+			System.out.println("Error: File \"" + file.getName() + "\" does not exist.");
 			return null;
 		} catch (IOException e){
 			System.out.println("There has been an IO error. Please try again");
@@ -154,10 +154,10 @@ public class Helpers{
 		if(elements != null){
 			for(int j = 0; j < elements.size(); j++){
 				if(j == elements.size() - 1) 
-					result += elements.get(j);
+					result += capitalizeFirstLetter(elements.get(j));
 					//System.out.println(elements.get(j));
 				else 
-					result += elements.get(j) + " - ";
+					result += capitalizeFirstLetter(elements.get(j)) + " - ";
 					//System.out.print(elements.get(j) + " - ");
 			}
 		}
@@ -190,5 +190,15 @@ public class Helpers{
 			//System.out.println("Could not create name \"" + line + "\" out of elements.");
 		}
 		return result;
+	}
+
+	/*
+	*	Created capitalize method to take care of Element abbreviations that are all lowercase
+	*/
+	public static String capitalizeFirstLetter(String word){
+		if (word == null || word.length() == 0) {
+        	return word;
+    	}
+    	return word.substring(0, 1).toUpperCase() + word.substring(1);
 	}
 }

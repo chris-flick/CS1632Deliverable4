@@ -62,7 +62,10 @@ public class Helpers{
 			return null;
 
 		// make string lowercase and call removeNonCharacters() method to remove anything that isn't in the alphabet
-		StringBuilder sb = new StringBuilder(removeNonCharacters(line.toLowerCase()) + " ");
+		StringBuilder sb = new StringBuilder(removeNonCharacters(line.toLowerCase()));
+		if(sb.toString().equals("")) return null;
+		else sb.append(" ");
+
 		int check = 0;
 		int begin = 0;
 		int end = 2;
@@ -109,7 +112,7 @@ public class Helpers{
 				String oneLetter = sb.substring(begin, end - 1);
 
 
-				
+
 				// check for abbreviations with one character
 				if (elementsDict.get(oneLetter) != null){
 					elements.add(oneLetter);
@@ -153,10 +156,10 @@ public class Helpers{
 
 		if(elements != null){
 			for(int j = 0; j < elements.size(); j++){
-				if(j == elements.size() - 1) 
+				if(j == elements.size() - 1)
 					result += capitalizeFirstLetter(elements.get(j));
 					//System.out.println(elements.get(j));
-				else 
+				else
 					result += capitalizeFirstLetter(elements.get(j)) + " - ";
 					//System.out.print(elements.get(j) + " - ");
 			}
@@ -177,10 +180,10 @@ public class Helpers{
 		if(elements != null){
 
 			for(int j = 0; j < elements.size(); j++){
-				if(j == elements.size() - 1) 
+				if(j == elements.size() - 1)
 					result += elementsDict.get(elements.get(j));
 					//System.out.println(elementsDict.get(elements.get(j)));
-				else 
+				else
 					result += elementsDict.get(elements.get(j)) + " - ";
 					//System.out.print(elementsDict.get(elements.get(j)) + " - ");
 			}

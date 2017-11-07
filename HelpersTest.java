@@ -77,7 +77,7 @@ public class HelpersTest {
 
 		String print = Helpers.generateElementAbbr(elements);
 
-		assertEquals("ts - ar - ra", print);
+		assertEquals("Ts - Ar - Ra", print);
 	}
 
 	// test that null is returned when given null arraylist
@@ -112,4 +112,40 @@ public class HelpersTest {
 
 		assertNull(print);
 	}
+
+	// Test that there should be no element when given a empty string
+	@Test
+	public void testCheckNull(){
+		ArrayList<String> result = Helpers.checkElements("", elementsDict);
+		assertNull(result);
+	}
+
+	//Test to see if the first letter is capitalized
+	@Test
+	public void testCapitalization(){
+		String result = Helpers.capitalizeFirstLetter("ra");
+		assertEquals("Ra",result);
+	}
+
+	//Test to see if the returned result is null when given invalid characters (characters that should be ignored)
+	@Test
+	public void testCheckElements4(){
+		ArrayList<String> result = Helpers.checkElements("@#$", elementsDict);
+		assertNull(result);
+	}
+
+	//Test to see if the returned result is null when given a tab
+	@Test
+	public void testCheckElements5(){
+		ArrayList<String> result = Helpers.checkElements("	", elementsDict);
+		assertNull(result);
+	}
+
+	//Test to see if the returned result is null when given a space
+	@Test
+	public void testCheckElements6(){
+		ArrayList<String> result = Helpers.checkElements(" ", elementsDict);
+		assertNull(result);
+	}
+
 }

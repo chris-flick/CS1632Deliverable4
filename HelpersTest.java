@@ -66,4 +66,50 @@ public class HelpersTest {
 
 		assertEquals("ra", result.get(2));
 	}
+
+	// test that correct string is produced when given arraylist of elements
+	@Test
+	public void testPrintAbbr1(){
+		ArrayList<String> elements = new ArrayList<String>();
+		elements.add("ts");
+		elements.add("ar");
+		elements.add("ra");
+
+		String print = Helpers.generateElementAbbr(elements);
+
+		assertEquals("ts - ar - ra", print);
+	}
+
+	// test that null is returned when given null arraylist
+	@Test
+	public void testPrintAbbr2(){
+		ArrayList<String> elements = null;
+
+		String print = Helpers.generateElementAbbr(elements);
+
+		assertNull(print);
+	}
+
+	// test that correct string of element names is produced when given arraylist of elements
+	@Test
+	public void testPrintName1(){
+		ArrayList<String> elements = new ArrayList<String>();
+		elements.add("ts");
+		elements.add("ar");
+		elements.add("ra");
+
+		String print = Helpers.generateElementName(elements, elementsDict);
+
+		assertEquals("Tennessine - Argon - Radium", print);
+	}
+
+	// test that null is returned when given null arraylist
+	@Test
+	public void testPrintName2(){
+		ArrayList<String> elements = null;
+
+		String print = Helpers.generateElementName(elements, elementsDict);
+
+		assertNull(print);
+	}
 }

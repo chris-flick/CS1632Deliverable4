@@ -24,21 +24,20 @@ public class Deliverable4{
 		for (int i = 0; i < input.size(); i++){
 			String line = input.get(i);
 			ArrayList<String> result = Helpers.checkElements(line, elementsDict);
-			if(result != null){
-			for(int j = 0; j<result.size(); j++){
-				if(j == result.size()-1) System.out.println(result.get(j));
-				else System.out.print(result.get(j) + " - ");
-			}
+			
+			String elementAbbr = Helpers.generateElementAbbr(result);
+			String elementNames = Helpers.generateElementName(result, elementsDict);
 
-			for(int j = 0; j<result.size(); j++){
-				if(j == result.size()-1) System.out.println(elementsDict.get(result.get(j)));
-				else System.out.print(elementsDict.get(result.get(j)) + " - ");
-			}
-		}else{
-			System.out.println("Could not create name \"" + line + "\" out of elements.");
+			if (elementAbbr != null)
+				System.out.println(elementAbbr);
+			else
+				System.out.println("Could not create name \"" + line + "\" out of elements.");
+
+			if (elementNames != null)
+				System.out.println(elementNames);
+
+			System.out.println();
 		}
-		System.out.println();
-	}
 
 
 

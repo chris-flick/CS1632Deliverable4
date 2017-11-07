@@ -63,6 +63,7 @@ public class Helpers{
 
 		// make string lowercase and call removeNonCharacters() method to remove anything that isn't in the alphabet
 		StringBuilder sb = new StringBuilder(removeNonCharacters(line.toLowerCase()) + " ");
+		int check = 0;
 		int begin = 0;
 		int end = 2;
 		ArrayList<String> elements = new ArrayList<String>();
@@ -88,9 +89,45 @@ public class Helpers{
 			}
 			// if neither one letter or two letter element is found, return null
 			else{
-				return null;
+				check = 1;
+				break;
 			}
 
+		}
+
+		// if above while loop doesn't work, need to run again but this time search
+		// for 1 letter abbreviations in order to account for all possible combinations
+		if (check == 1){
+			begin = 0;
+			end = 2;
+			elements = new ArrayList<String>();
+
+			while (end <= sb.length()){
+				// get two letter substring in order to try to match to a Two letter element
+				String twoLetters = sb.substring(begin, end);
+				// get one letter substring in order to try to match to a One letter element
+				String oneLetter = sb.substring(begin, end - 1);
+
+
+				
+				// check for abbreviations with one character
+				if (elementsDict.get(oneLetter) != null){
+					elements.add(oneLetter);
+					begin += 1;
+					end +=1;
+				}
+				// check for abbreviations with two characterss
+				else if (elementsDict.get(twoLetters) != null){
+					elements.add(twoLetters);
+					begin += 2;
+					end +=2;
+				}
+				// if neither one letter or two letter element is found, return null
+				else{
+					return null;
+				}
+
+			}
 		}
 		return elements;
 	}

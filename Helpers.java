@@ -152,21 +152,18 @@ public class Helpers{
 	*	takes arraylist of elements and produces an I/O friendly string consisting of the element abbreviations to print
 	*/
 	public static String generateElementAbbr(ArrayList<String> elements){
-		String result = "";
+		StringBuilder result = new StringBuilder("");
 
 		if(elements != null){
 			for(int j = 0; j < elements.size(); j++){
 				if(j == elements.size() - 1)
-					result += capitalizeFirstLetter(elements.get(j));
-					//System.out.println(elements.get(j));
+					results.append(capitalizeFirstLetter(elements.get(j)));
 				else
-					result += capitalizeFirstLetter(elements.get(j)) + " - ";
-					//System.out.print(elements.get(j) + " - ");
+					results.append(capitalizeFirstLetter(elements.get(j)) + " - ");
 			}
 		}
 		else{
 			return null;
-			//System.out.println("Could not create name \"" + line + "\" out of elements.");
 		}
 		return result;
 	}
@@ -200,8 +197,8 @@ public class Helpers{
 	*/
 	public static String capitalizeFirstLetter(String word){
 		if (word == null || word.length() == 0) {
-        	return word;
-    	}
-    	return word.substring(0, 1).toUpperCase() + word.substring(1);
+					return word;
+			}
+			return word.substring(0, 1).toUpperCase() + word.substring(1);
 	}
 }
